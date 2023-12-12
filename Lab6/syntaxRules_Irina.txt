@@ -1,0 +1,57 @@
+<program> = <declaration_list> ; <compound_statement>
+<declaration_list> = <declaration>
+<declaration_list> = <declaration> ; <declaration_list>
+<declaration> = <type> <identifier>
+<declaration> = <array_declaration>
+<type> = boolean
+<type> = int
+<type> = char
+<type> = string
+<array_declaration> = <type> <identifier> [ <positive_integer> ]
+<positive_integer> = + <number>
+<positive_integer> = <number>
+<number> = <non_zero_digit> <digit> <number>
+<compound_statement> = <statement>
+<compound_statement> = <statement> ; <compound_statement>
+<statement> = <simple_statement>
+<statement> = <struct_statement>
+<simple_statement> = <assign_statement>
+<simple_statement> = <io_statement>
+<assign_statement> = <identifier> = <expression>
+<expression> = <arithmetic_expression>
+<expression> = <str_expression>
+<expression> = <bool_expression>
+<arithmetic_expression> = <term>
+<arithmetic_expression> = <arithmetic_expression> <additive_operator> <term>
+<term> = <factor>
+<term> = <term> <multiplicative_operator> <factor>
+<factor> = <identifier>
+<factor> = <integer>
+<factor> = ( <arithmetic_expression> )
+<additive_operator> = +
+<additive_operator> = -
+<multiplicative_operator> = *
+<multiplicative_operator> = /
+<str_expression> = <string>
+<str_expression> = <string_operator> <str_expression>
+<string_operator> = +
+<bool_expression> = <boolean>
+<bool_expression> = <bool_operator> <bool_expression>
+<bool_operator> = and
+<bool_operator> = or
+<bool_operator> = not
+<bool_operator> = ==
+<bool_operator> = !=
+<bool_operator> = <
+<bool_operator> = <=
+<bool_operator> = >
+<bool_operator> = >=
+<struct_statement> = <if_statement>
+<struct_statement> = <for_statement>
+<struct_statement> = <compound_statement>
+<if_statement> = if ( <bool_expression> ) <statement> else <statement>
+<for_statement> = for ( <simple_statement> ; <bool_expression> ; <assign_statement> ) <statement>
+<io_statement> = <read_statement>
+<io_statement> = <write_statement>
+<read_statement> = read ( <identifier> )
+<write_statement> = display ( <expression> )
