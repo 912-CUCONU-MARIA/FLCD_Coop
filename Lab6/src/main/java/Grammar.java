@@ -1,16 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Grammar
 {
     private List<String> nonterminals;
     private List<String> terminals;
-    private Map<String,List<String>> productions;
+    private Map<String,List<List<String>>> productions;
 
     private int lineNo;
 
@@ -110,31 +107,31 @@ public class Grammar
             if(!productions.containsKey(leftToken))
             {
                 productions.put(leftToken, new ArrayList<>());
-                productions.get(leftToken).add(rightHandSide);
+                productions.get(leftToken).add(Arrays.stream(rightHandSide.split(" ")).toList());
             }
             // key exists, just add value
             else if(productions.containsKey(leftToken) && !(productions.get(leftToken).contains(rightHandSide)))
             {
-                productions.get(leftToken).add(rightHandSide);
+                productions.get(leftToken).add(Arrays.stream(rightHandSide.split(" ")).toList());
             }
         }
     }
 
-    public void printProductionsForNonterminal(String nonterminal) {
+    public List<List<String>> getProductionsForNonterminal(String nonterminal) throws GrammarException{
         // Check if the nonterminal exists
         if (!nonterminals.contains(nonterminal)) {
-            System.out.println("Non-terminal '" + nonterminal + "' does not exist in the grammar.");
-            return;
+            throw new GrammarException("Non-terminal '" + nonterminal + "' does not exist in the grammar.");
         }
 
-        List<String> productionList = productions.get(nonterminal);
+        List<List<String>> productionList = productions.get(nonterminal);
         if (productionList == null || productionList.isEmpty()) {
-            System.out.println("There are no productions for the non-terminal '" + nonterminal+"'");
+            throw new GrammarException("There are no productions for the non-terminal '" + nonterminal+"'");
         } else {
-            System.out.println("Productions for non-terminal '" + nonterminal + "':");
-            for (String production : productionList) {
-                System.out.println(nonterminal + " = " + production);
-            }
+            return productionList;
+            //System.out.println("Productions for non-terminal '" + nonterminal + "':");
+            //for (String production : productionList) {
+                //System.out.println(nonterminal + " = " + production);
+            //}
         }
     }
 
@@ -149,7 +146,7 @@ public class Grammar
         return terminals;
     }
 
-    public Map<String,List<String>> getProductions()
+    public Map<String,List<List<String>>> getProductions()
     {
         return productions;
     }

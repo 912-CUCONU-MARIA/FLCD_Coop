@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Configuration {
 
@@ -40,13 +39,19 @@ public class Configuration {
             String nonterminal = inputStack.peek();
             if (grammar.getNonterminals().contains(nonterminal)) {
                 inputStack.pop();
-                List<String> productions = grammar.getProductions().get(nonterminal);
+                List<List<String>> productions = grammar.getProductions().get(nonterminal);
                 if (productions != null && !productions.isEmpty()) {
-                    String firstProduction = productions.get(0); // expand with the first production
+                    List<String> firstProduction = new ArrayList<>();
+                    firstProduction.addAll(productions.get(0));
+                    //List<String> firstProduction = productions.get(0); // expand with the first production
                     workingStack.push(new Pair<>(nonterminal,1));
-                    for (int i = firstProduction.length() - 1; i >= 0; i--) {
-                        if(firstProduction.charAt(i) != ' ')
-                            inputStack.push(String.valueOf(firstProduction.charAt(i)));
+//                    for (int i = firstProduction.length() - 1; i >= 0; i--) {
+//                        if(firstProduction.charAt(i) != ' ')
+//                            inputStack.push(String.valueOf(firstProduction.charAt(i)));
+//                    }
+                    Collections.reverse(firstProduction);
+                    for(String elem: firstProduction){
+                        inputStack.push(elem);
                     }
                 }
                 return;
@@ -79,6 +84,67 @@ public class Configuration {
         }
         throw new MoveException("Head of working stack is not a terminal");
 
+    }
+
+    public void anotherTry() throws MoveException, GrammarException{
+        if(!workingStack.isEmpty()){
+            Pair<String,Integer> production = workingStack.peek();
+            String headOfWorkingStack = production.getFirst();
+            if(grammar.getNonterminals().contains(headOfWorkingStack)){
+                Integer prodNumber = production.getSecond();
+
+                List<List<String>> allProd = grammar.getProductionsForNonterminal(headOfWorkingStack);
+
+                // still have a next production to move to
+                if(prodNumber < allProd.size()){
+                    state = State.NORMAL;
+                    prodNumber++;
+                    List<String> nextProd = new ArrayList<>();
+                    nextProd.addAll(allProd.get(prodNumber-1));
+                    //List<String> nextProd = allProd.get(prodNumber-1);
+                    workingStack.pop();
+                    workingStack.push(new Pair<>(headOfWorkingStack,prodNumber));
+                    List<String> currentProd = allProd.get(prodNumber-2);
+                    for(String elem: currentProd)
+                        inputStack.pop();
+
+                    Collections.reverse(nextProd);
+                    for(String elem: nextProd)
+                        inputStack.push(elem);
+                }
+                // reached last production for non-terminal, move back
+                else if(prodNumber == allProd.size()){
+                    state = State.BACK;
+                    workingStack.pop();
+                    inputStack.pop();
+                    inputStack.push(headOfWorkingStack);
+                }
+                // error state
+                else if(position == 0 && Objects.equals(headOfWorkingStack, "S")){
+                    state = State.ERROR;
+                    workingStack.pop();
+                    inputStack.pop();
+                    throw new MoveException("Entered error state with working stack " + workingStack + " and input stack " + inputStack);
+                }
+            }
+        }
+    }
+
+    public int noTerminalsInWorkingStack(){
+        int counter = 0;
+        for(Pair<String,Integer> elem: workingStack){
+            if(grammar.getTerminals().contains(elem.getFirst()))
+                counter++;
+        }
+        return counter;
+    }
+
+    public void success(){
+        if(state == State.NORMAL)
+            if(position == noTerminalsInWorkingStack())
+                if(inputStack.size() == 0){
+                    state = State.FINAL;
+                }
     }
 
     public State getState() {
