@@ -195,13 +195,6 @@ public class ConfigurationTest {
     }
 
 
-//    @Test(expected = MoveException.class)
-//    public void anotherTryWithException()
-//    {
-//
-//    }
-
-
     @Test
     public void success() throws MoveException, GrammarException
     {
@@ -248,7 +241,6 @@ public class ConfigurationTest {
         configuration.advance();
 
 
-
         Configuration.State state = configuration.getState();
         assertEquals(state,Configuration.State.NORMAL);
 
@@ -268,7 +260,5 @@ public class ConfigurationTest {
         assertEquals(position, 5);
 
         assertEquals(configuration.getInputStack().size(), 0);
-
-
     }
 }

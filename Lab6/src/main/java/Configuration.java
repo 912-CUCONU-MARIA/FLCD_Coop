@@ -17,6 +17,7 @@ public class Configuration {
         this.grammar = grammar;
         this.workingStack = new Stack<>();
         this.inputStack = new Stack<>();
+        inputStack.push("S");
         this.position = 0;
     }
 
@@ -43,12 +44,7 @@ public class Configuration {
                 if (productions != null && !productions.isEmpty()) {
                     List<String> firstProduction = new ArrayList<>();
                     firstProduction.addAll(productions.get(0));
-                    //List<String> firstProduction = productions.get(0); // expand with the first production
                     workingStack.push(new Pair<>(nonterminal,1));
-//                    for (int i = firstProduction.length() - 1; i >= 0; i--) {
-//                        if(firstProduction.charAt(i) != ' ')
-//                            inputStack.push(String.valueOf(firstProduction.charAt(i)));
-//                    }
                     Collections.reverse(firstProduction);
                     for(String elem: firstProduction){
                         inputStack.push(elem);
@@ -57,7 +53,7 @@ public class Configuration {
                 return;
             }
         }
-        throw new MoveException("Head of input stack is not a nonterminal");
+        throw new MoveException("Head of input stack is not a non-terminal");
 
     }
 
