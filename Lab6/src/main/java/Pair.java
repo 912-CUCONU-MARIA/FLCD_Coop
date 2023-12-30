@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Pair<T1,T2> {
+public class Pair<T1, T2> {
     private T1 first;
     private T2 second;
 
@@ -9,7 +9,7 @@ public class Pair<T1,T2> {
         this.second = second;
     }
 
-    public Pair(){
+    public Pair() {
 
     }
 
@@ -31,10 +31,7 @@ public class Pair<T1,T2> {
 
     @Override
     public String toString() {
-        return "Pair{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
+        return "" + first + ((Integer) second != 0 ? "" + second : "") + "";
     }
 
     @Override

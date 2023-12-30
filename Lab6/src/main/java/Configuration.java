@@ -13,7 +13,7 @@ public class Configuration {
     private Grammar grammar;
 
     public Configuration(Grammar grammar) {
-        this.state=State.NORMAL;
+        this.state = State.NORMAL;
         this.grammar = grammar;
         this.workingStack = new Stack<>();
         this.inputStack = new Stack<>();
@@ -27,7 +27,7 @@ public class Configuration {
 
             if (grammar.getTerminals().contains((headOfInputStack))) {
                 inputStack.pop();
-                workingStack.push(new Pair<>(headOfInputStack,0));
+                workingStack.push(new Pair<>(headOfInputStack, 0));
                 position++;
                 return;
             }
@@ -44,9 +44,9 @@ public class Configuration {
                 if (productions != null && !productions.isEmpty()) {
                     List<String> firstProduction = new ArrayList<>();
                     firstProduction.addAll(productions.get(0));
-                    workingStack.push(new Pair<>(nonterminal,1));
+                    workingStack.push(new Pair<>(nonterminal, 1));
                     Collections.reverse(firstProduction);
-                    for(String elem: firstProduction){
+                    for (String elem : firstProduction) {
                         inputStack.push(elem);
                     }
                 }
@@ -82,41 +82,41 @@ public class Configuration {
 
     }
 
-    public void anotherTry() throws MoveException, GrammarException{
-        if(!workingStack.isEmpty()){
-            Pair<String,Integer> production = workingStack.peek();
+    public void anotherTry() throws MoveException, GrammarException {
+        if (!workingStack.isEmpty()) {
+            Pair<String, Integer> production = workingStack.peek();
             String headOfWorkingStack = production.getFirst();
-            if(grammar.getNonterminals().contains(headOfWorkingStack)){
+            if (grammar.getNonterminals().contains(headOfWorkingStack)) {
                 Integer prodNumber = production.getSecond();
 
                 List<List<String>> allProd = grammar.getProductionsForNonterminal(headOfWorkingStack);
 
                 // still have a next production to move to
-                if(prodNumber < allProd.size()){
+                if (prodNumber < allProd.size()) {
                     state = State.NORMAL;
                     prodNumber++;
                     List<String> nextProd = new ArrayList<>();
-                    nextProd.addAll(allProd.get(prodNumber-1));
+                    nextProd.addAll(allProd.get(prodNumber - 1));
                     //List<String> nextProd = allProd.get(prodNumber-1);
                     workingStack.pop();
-                    workingStack.push(new Pair<>(headOfWorkingStack,prodNumber));
-                    List<String> currentProd = allProd.get(prodNumber-2);
-                    for(String elem: currentProd)
+                    workingStack.push(new Pair<>(headOfWorkingStack, prodNumber));
+                    List<String> currentProd = allProd.get(prodNumber - 2);
+                    for (String elem : currentProd)
                         inputStack.pop();
 
                     Collections.reverse(nextProd);
-                    for(String elem: nextProd)
+                    for (String elem : nextProd)
                         inputStack.push(elem);
                 }
                 // reached last production for non-terminal, move back
-                else if(prodNumber == allProd.size()){
+                else if (prodNumber == allProd.size()) {
                     state = State.BACK;
                     workingStack.pop();
                     inputStack.pop();
                     inputStack.push(headOfWorkingStack);
                 }
                 // error state
-                else if(position == 0 && Objects.equals(headOfWorkingStack, "S")){
+                else if (position == 0 && Objects.equals(headOfWorkingStack, "S")) {
                     state = State.ERROR;
                     workingStack.pop();
                     inputStack.pop();
@@ -126,19 +126,19 @@ public class Configuration {
         }
     }
 
-    public int noTerminalsInWorkingStack(){
+    public int noTerminalsInWorkingStack() {
         int counter = 0;
-        for(Pair<String,Integer> elem: workingStack){
-            if(grammar.getTerminals().contains(elem.getFirst()))
+        for (Pair<String, Integer> elem : workingStack) {
+            if (grammar.getTerminals().contains(elem.getFirst()))
                 counter++;
         }
         return counter;
     }
 
-    public void success(){
-        if(state == State.NORMAL)
-            if(position == noTerminalsInWorkingStack())
-                if(inputStack.size() == 0){
+    public void success() {
+        if (state == State.NORMAL)
+            if (position == noTerminalsInWorkingStack())
+                if (inputStack.size() == 0) {
                     state = State.FINAL;
                 }
     }
@@ -182,4 +182,14 @@ public class Configuration {
     public void setGrammar(Grammar grammar) {
         this.grammar = grammar;
     }
+
+    @Override
+    public String toString() {
+        return "{" + state +
+                ", " + position +
+                ", w=" + workingStack +
+                ", in=" + inputStack +
+                '}';
+    }
+
 }
