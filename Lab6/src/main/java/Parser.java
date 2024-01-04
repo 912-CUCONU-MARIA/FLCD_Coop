@@ -30,29 +30,39 @@ public class Parser {
                     config.success();
                     bufferedWriter.write("success\n");
                 } else {
-                    String headOfInputStack = config.getInputStack().peek();
-                    if (grammar.getNonterminals().contains(headOfInputStack)) {
-                        config.expand();
-                        bufferedWriter.write("expand\n");
-                    } else {
-                        if (config.getPosition() <= word.length() - 1 && headOfInputStack.equals(String.valueOf(word.charAt(config.getPosition())))) {
-                            config.advance();
-                            bufferedWriter.write("advance\n");
+                    if(config.getInputStack().isEmpty()){
+                        break;
+                    }
+                    else {
+                        String headOfInputStack = config.getInputStack().peek();
+                        if (grammar.getNonterminals().contains(headOfInputStack)) {
+                            config.expand();
+                            bufferedWriter.write("expand\n");
                         } else {
-                            config.momentaryInsuccess();
-                            bufferedWriter.write("momentary insuccess\n");
+                            if (config.getPosition() <= word.length() - 1 && headOfInputStack.equals(String.valueOf(word.charAt(config.getPosition())))) {
+                                config.advance();
+                                bufferedWriter.write("advance\n");
+                            } else {
+                                config.momentaryInsuccess();
+                                bufferedWriter.write("momentary insuccess\n");
+                            }
                         }
                     }
                 }
             } else {
                 if (state == Configuration.State.BACK) {
-                    String headOfWorkingStack = config.getWorkingStack().peek().getFirst();
-                    if (grammar.getTerminals().contains(headOfWorkingStack)) {
-                        config.back();
-                        bufferedWriter.write("back\n");
-                    } else {
-                        config.anotherTry();
-                        bufferedWriter.write("another try\n");
+                    if(config.getWorkingStack().isEmpty()){
+                        break;
+                    }
+                    else {
+                        String headOfWorkingStack = config.getWorkingStack().peek().getFirst();
+                        if (grammar.getTerminals().contains(headOfWorkingStack)) {
+                            config.back();
+                            bufferedWriter.write("back\n");
+                        } else {
+                            config.anotherTry();
+                            bufferedWriter.write("another try\n");
+                        }
                     }
                 }
             }

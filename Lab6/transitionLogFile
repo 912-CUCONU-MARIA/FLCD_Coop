@@ -1,0 +1,77 @@
+{NORMAL, 0, w=[], in=[S]} expand
+{NORMAL, 0, w=[S1], in=[S, b, S, a]} advance
+{NORMAL, 1, w=[S1, a], in=[S, b, S]} expand
+{NORMAL, 1, w=[S1, a, S1], in=[S, b, S, b, S, a]} advance
+{NORMAL, 2, w=[S1, a, S1, a], in=[S, b, S, b, S]} expand
+{NORMAL, 2, w=[S1, a, S1, a, S1], in=[S, b, S, b, S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S1, a, S1, a, S1], in=[S, b, S, b, S, b, S, a]} another try
+{NORMAL, 2, w=[S1, a, S1, a, S2], in=[S, b, S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S1, a, S1, a, S2], in=[S, b, S, b, S, a]} another try
+{NORMAL, 2, w=[S1, a, S1, a, S3], in=[S, b, S, b, c]} advance
+{NORMAL, 3, w=[S1, a, S1, a, S3, c], in=[S, b, S, b]} advance
+{NORMAL, 4, w=[S1, a, S1, a, S3, c, b], in=[S, b, S]} expand
+{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S1], in=[S, b, S, b, S, a]} momentary insuccess
+{BACK, 4, w=[S1, a, S1, a, S3, c, b, S1], in=[S, b, S, b, S, a]} another try
+{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S2], in=[S, b, S, a]} momentary insuccess
+{BACK, 4, w=[S1, a, S1, a, S3, c, b, S2], in=[S, b, S, a]} another try
+{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S3], in=[S, b, c]} momentary insuccess
+{BACK, 4, w=[S1, a, S1, a, S3, c, b, S3], in=[S, b, c]} another try
+{BACK, 4, w=[S1, a, S1, a, S3, c, b], in=[S, b, S]} back
+{BACK, 3, w=[S1, a, S1, a, S3, c], in=[S, b, S, b]} back
+{BACK, 2, w=[S1, a, S1, a, S3], in=[S, b, S, b, c]} another try
+{BACK, 2, w=[S1, a, S1, a], in=[S, b, S, b, S]} back
+{BACK, 1, w=[S1, a, S1], in=[S, b, S, b, S, a]} another try
+{NORMAL, 1, w=[S1, a, S2], in=[S, b, S, a]} advance
+{NORMAL, 2, w=[S1, a, S2, a], in=[S, b, S]} expand
+{NORMAL, 2, w=[S1, a, S2, a, S1], in=[S, b, S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S1, a, S2, a, S1], in=[S, b, S, b, S, a]} another try
+{NORMAL, 2, w=[S1, a, S2, a, S2], in=[S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S1, a, S2, a, S2], in=[S, b, S, a]} another try
+{NORMAL, 2, w=[S1, a, S2, a, S3], in=[S, b, c]} advance
+{NORMAL, 3, w=[S1, a, S2, a, S3, c], in=[S, b]} advance
+{NORMAL, 4, w=[S1, a, S2, a, S3, c, b], in=[S]} expand
+{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S1], in=[S, b, S, a]} momentary insuccess
+{BACK, 4, w=[S1, a, S2, a, S3, c, b, S1], in=[S, b, S, a]} another try
+{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S2], in=[S, a]} momentary insuccess
+{BACK, 4, w=[S1, a, S2, a, S3, c, b, S2], in=[S, a]} another try
+{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S3], in=[c]} momentary insuccess
+{BACK, 4, w=[S1, a, S2, a, S3, c, b, S3], in=[c]} another try
+{BACK, 4, w=[S1, a, S2, a, S3, c, b], in=[S]} back
+{BACK, 3, w=[S1, a, S2, a, S3, c], in=[S, b]} back
+{BACK, 2, w=[S1, a, S2, a, S3], in=[S, b, c]} another try
+{BACK, 2, w=[S1, a, S2, a], in=[S, b, S]} back
+{BACK, 1, w=[S1, a, S2], in=[S, b, S, a]} another try
+{NORMAL, 1, w=[S1, a, S3], in=[S, b, c]} momentary insuccess
+{BACK, 1, w=[S1, a, S3], in=[S, b, c]} another try
+{BACK, 1, w=[S1, a], in=[S, b, S]} back
+{BACK, 0, w=[S1], in=[S, b, S, a]} another try
+{NORMAL, 0, w=[S2], in=[S, a]} advance
+{NORMAL, 1, w=[S2, a], in=[S]} expand
+{NORMAL, 1, w=[S2, a, S1], in=[S, b, S, a]} advance
+{NORMAL, 2, w=[S2, a, S1, a], in=[S, b, S]} expand
+{NORMAL, 2, w=[S2, a, S1, a, S1], in=[S, b, S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S2, a, S1, a, S1], in=[S, b, S, b, S, a]} another try
+{NORMAL, 2, w=[S2, a, S1, a, S2], in=[S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S2, a, S1, a, S2], in=[S, b, S, a]} another try
+{NORMAL, 2, w=[S2, a, S1, a, S3], in=[S, b, c]} advance
+{NORMAL, 3, w=[S2, a, S1, a, S3, c], in=[S, b]} advance
+{NORMAL, 4, w=[S2, a, S1, a, S3, c, b], in=[S]} expand
+{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S1], in=[S, b, S, a]} momentary insuccess
+{BACK, 4, w=[S2, a, S1, a, S3, c, b, S1], in=[S, b, S, a]} another try
+{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S2], in=[S, a]} momentary insuccess
+{BACK, 4, w=[S2, a, S1, a, S3, c, b, S2], in=[S, a]} another try
+{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S3], in=[c]} momentary insuccess
+{BACK, 4, w=[S2, a, S1, a, S3, c, b, S3], in=[c]} another try
+{BACK, 4, w=[S2, a, S1, a, S3, c, b], in=[S]} back
+{BACK, 3, w=[S2, a, S1, a, S3, c], in=[S, b]} back
+{BACK, 2, w=[S2, a, S1, a, S3], in=[S, b, c]} another try
+{BACK, 2, w=[S2, a, S1, a], in=[S, b, S]} back
+{BACK, 1, w=[S2, a, S1], in=[S, b, S, a]} another try
+{NORMAL, 1, w=[S2, a, S2], in=[S, a]} advance
+{NORMAL, 2, w=[S2, a, S2, a], in=[S]} expand
+{NORMAL, 2, w=[S2, a, S2, a, S1], in=[S, b, S, a]} momentary insuccess
+{BACK, 2, w=[S2, a, S2, a, S1], in=[S, b, S, a]} another try
+{NORMAL, 2, w=[S2, a, S2, a, S2], in=[S, a]} momentary insuccess
+{BACK, 2, w=[S2, a, S2, a, S2], in=[S, a]} another try
+{NORMAL, 2, w=[S2, a, S2, a, S3], in=[c]} advance
+{NORMAL, 3, w=[S2, a, S2, a, S3, c], in=[]} {NORMAL, 3, w=[S2, a, S2, a, S3, c], in=[]} 
