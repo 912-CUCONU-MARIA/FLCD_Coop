@@ -2,10 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import parser.*;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ConfigurationTest {
     private Grammar grammar;
@@ -84,7 +83,7 @@ public class ConfigurationTest {
     }
 
     @Test
-    public void testAnotherTry() throws MoveException, GrammarException{
+    public void testAnotherTry() throws MoveException, GrammarException {
         configuration.getInputStack().push("S");
 
         configuration.expand();

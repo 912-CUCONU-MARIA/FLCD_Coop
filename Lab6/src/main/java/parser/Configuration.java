@@ -1,3 +1,5 @@
+package parser;
+
 import java.util.*;
 
 public class Configuration {
@@ -111,8 +113,11 @@ public class Configuration {
                 // reached last production for non-terminal, move back
                 else if (prodNumber == allProd.size()) {
                     state = State.BACK;
-                    workingStack.pop();
-                    inputStack.pop();
+                    Pair<String,Integer> prodPopped = workingStack.pop();
+                    for(var elements : grammar.getProductionsForNonterminal(prodPopped.getFirst()).get(prodPopped.getSecond()-1)){
+                        inputStack.pop();
+                    }
+                    //inputStack.pop();
                     inputStack.push(headOfWorkingStack);
                 }
                 // error state

@@ -1,77 +1,82 @@
 {NORMAL, 0, w=[], in=[S]} expand
-{NORMAL, 0, w=[S1], in=[S, b, S, a]} advance
-{NORMAL, 1, w=[S1, a], in=[S, b, S]} expand
-{NORMAL, 1, w=[S1, a, S1], in=[S, b, S, b, S, a]} advance
-{NORMAL, 2, w=[S1, a, S1, a], in=[S, b, S, b, S]} expand
-{NORMAL, 2, w=[S1, a, S1, a, S1], in=[S, b, S, b, S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S1, a, S1, a, S1], in=[S, b, S, b, S, b, S, a]} another try
-{NORMAL, 2, w=[S1, a, S1, a, S2], in=[S, b, S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S1, a, S1, a, S2], in=[S, b, S, b, S, a]} another try
-{NORMAL, 2, w=[S1, a, S1, a, S3], in=[S, b, S, b, c]} advance
-{NORMAL, 3, w=[S1, a, S1, a, S3, c], in=[S, b, S, b]} advance
-{NORMAL, 4, w=[S1, a, S1, a, S3, c, b], in=[S, b, S]} expand
-{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S1], in=[S, b, S, b, S, a]} momentary insuccess
-{BACK, 4, w=[S1, a, S1, a, S3, c, b, S1], in=[S, b, S, b, S, a]} another try
-{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S2], in=[S, b, S, a]} momentary insuccess
-{BACK, 4, w=[S1, a, S1, a, S3, c, b, S2], in=[S, b, S, a]} another try
-{NORMAL, 4, w=[S1, a, S1, a, S3, c, b, S3], in=[S, b, c]} momentary insuccess
-{BACK, 4, w=[S1, a, S1, a, S3, c, b, S3], in=[S, b, c]} another try
-{BACK, 4, w=[S1, a, S1, a, S3, c, b], in=[S, b, S]} back
-{BACK, 3, w=[S1, a, S1, a, S3, c], in=[S, b, S, b]} back
-{BACK, 2, w=[S1, a, S1, a, S3], in=[S, b, S, b, c]} another try
-{BACK, 2, w=[S1, a, S1, a], in=[S, b, S, b, S]} back
-{BACK, 1, w=[S1, a, S1], in=[S, b, S, b, S, a]} another try
-{NORMAL, 1, w=[S1, a, S2], in=[S, b, S, a]} advance
-{NORMAL, 2, w=[S1, a, S2, a], in=[S, b, S]} expand
-{NORMAL, 2, w=[S1, a, S2, a, S1], in=[S, b, S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S1, a, S2, a, S1], in=[S, b, S, b, S, a]} another try
-{NORMAL, 2, w=[S1, a, S2, a, S2], in=[S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S1, a, S2, a, S2], in=[S, b, S, a]} another try
-{NORMAL, 2, w=[S1, a, S2, a, S3], in=[S, b, c]} advance
-{NORMAL, 3, w=[S1, a, S2, a, S3, c], in=[S, b]} advance
-{NORMAL, 4, w=[S1, a, S2, a, S3, c, b], in=[S]} expand
-{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S1], in=[S, b, S, a]} momentary insuccess
-{BACK, 4, w=[S1, a, S2, a, S3, c, b, S1], in=[S, b, S, a]} another try
-{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S2], in=[S, a]} momentary insuccess
-{BACK, 4, w=[S1, a, S2, a, S3, c, b, S2], in=[S, a]} another try
-{NORMAL, 4, w=[S1, a, S2, a, S3, c, b, S3], in=[c]} momentary insuccess
-{BACK, 4, w=[S1, a, S2, a, S3, c, b, S3], in=[c]} another try
-{BACK, 4, w=[S1, a, S2, a, S3, c, b], in=[S]} back
-{BACK, 3, w=[S1, a, S2, a, S3, c], in=[S, b]} back
-{BACK, 2, w=[S1, a, S2, a, S3], in=[S, b, c]} another try
-{BACK, 2, w=[S1, a, S2, a], in=[S, b, S]} back
-{BACK, 1, w=[S1, a, S2], in=[S, b, S, a]} another try
-{NORMAL, 1, w=[S1, a, S3], in=[S, b, c]} momentary insuccess
-{BACK, 1, w=[S1, a, S3], in=[S, b, c]} another try
-{BACK, 1, w=[S1, a], in=[S, b, S]} back
-{BACK, 0, w=[S1], in=[S, b, S, a]} another try
-{NORMAL, 0, w=[S2], in=[S, a]} advance
-{NORMAL, 1, w=[S2, a], in=[S]} expand
-{NORMAL, 1, w=[S2, a, S1], in=[S, b, S, a]} advance
-{NORMAL, 2, w=[S2, a, S1, a], in=[S, b, S]} expand
-{NORMAL, 2, w=[S2, a, S1, a, S1], in=[S, b, S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S2, a, S1, a, S1], in=[S, b, S, b, S, a]} another try
-{NORMAL, 2, w=[S2, a, S1, a, S2], in=[S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S2, a, S1, a, S2], in=[S, b, S, a]} another try
-{NORMAL, 2, w=[S2, a, S1, a, S3], in=[S, b, c]} advance
-{NORMAL, 3, w=[S2, a, S1, a, S3, c], in=[S, b]} advance
-{NORMAL, 4, w=[S2, a, S1, a, S3, c, b], in=[S]} expand
-{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S1], in=[S, b, S, a]} momentary insuccess
-{BACK, 4, w=[S2, a, S1, a, S3, c, b, S1], in=[S, b, S, a]} another try
-{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S2], in=[S, a]} momentary insuccess
-{BACK, 4, w=[S2, a, S1, a, S3, c, b, S2], in=[S, a]} another try
-{NORMAL, 4, w=[S2, a, S1, a, S3, c, b, S3], in=[c]} momentary insuccess
-{BACK, 4, w=[S2, a, S1, a, S3, c, b, S3], in=[c]} another try
-{BACK, 4, w=[S2, a, S1, a, S3, c, b], in=[S]} back
-{BACK, 3, w=[S2, a, S1, a, S3, c], in=[S, b]} back
-{BACK, 2, w=[S2, a, S1, a, S3], in=[S, b, c]} another try
-{BACK, 2, w=[S2, a, S1, a], in=[S, b, S]} back
-{BACK, 1, w=[S2, a, S1], in=[S, b, S, a]} another try
-{NORMAL, 1, w=[S2, a, S2], in=[S, a]} advance
-{NORMAL, 2, w=[S2, a, S2, a], in=[S]} expand
-{NORMAL, 2, w=[S2, a, S2, a, S1], in=[S, b, S, a]} momentary insuccess
-{BACK, 2, w=[S2, a, S2, a, S1], in=[S, b, S, a]} another try
-{NORMAL, 2, w=[S2, a, S2, a, S2], in=[S, a]} momentary insuccess
-{BACK, 2, w=[S2, a, S2, a, S2], in=[S, a]} another try
-{NORMAL, 2, w=[S2, a, S2, a, S3], in=[c]} advance
-{NORMAL, 3, w=[S2, a, S2, a, S3, c], in=[]} {NORMAL, 3, w=[S2, a, S2, a, S3, c], in=[]} 
+{NORMAL, 0, w=[S1], in=[program]} expand
+{NORMAL, 0, w=[S1, program1], in=[program, statement]} expand
+{NORMAL, 0, w=[S1, program1, statement1], in=[program, ;, dec_stmt]} expand
+{NORMAL, 0, w=[S1, program1, statement1, dec_stmt1], in=[program, ;, identifier, type]} expand
+{NORMAL, 0, w=[S1, program1, statement1, dec_stmt1, type1], in=[program, ;, identifier, int]} advance
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt1, type1, int], in=[program, ;, identifier]} advance
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt1, type1, int, identifier], in=[program, ;]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt1, type1, int, identifier], in=[program, ;]} back
+{BACK, 1, w=[S1, program1, statement1, dec_stmt1, type1, int], in=[program, ;, identifier]} back
+{BACK, 0, w=[S1, program1, statement1, dec_stmt1, type1], in=[program, ;, identifier, int]} another try
+{NORMAL, 0, w=[S1, program1, statement1, dec_stmt1, type2], in=[program, ;, identifier, string]} momentary insuccess
+{BACK, 0, w=[S1, program1, statement1, dec_stmt1, type2], in=[program, ;, identifier, string]} another try
+{BACK, 0, w=[S1, program1, statement1, dec_stmt1], in=[program, ;, identifier, type]} another try
+{NORMAL, 0, w=[S1, program1, statement1, dec_stmt2], in=[program, ;, simple_assign_stmt, type]} expand
+{NORMAL, 0, w=[S1, program1, statement1, dec_stmt2, type1], in=[program, ;, simple_assign_stmt, int]} advance
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int], in=[program, ;, simple_assign_stmt]} expand
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1], in=[program, ;, expression, =, identifier]} advance
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier], in=[program, ;, expression, =]} advance
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =], in=[program, ;, expression]} expand
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1], in=[program, ;, in_func_call]} expand
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1, in_func_call1], in=[program, ;, readInt()]} momentary insuccess
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1, in_func_call1], in=[program, ;, readInt()]} another try
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1, in_func_call2], in=[program, ;, readString()]} momentary insuccess
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1, in_func_call2], in=[program, ;, readString()]} another try
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression1], in=[program, ;, in_func_call]} another try
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2], in=[program, ;, int_expression]} expand
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression1], in=[program, ;, int]} momentary insuccess
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression1], in=[program, ;, int]} another try
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression2], in=[program, ;, identifier]} momentary insuccess
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression2], in=[program, ;, identifier]} another try
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression3], in=[program, ;, arr_access]} expand
+{NORMAL, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression3, arr_access1], in=[program, ;, ], positive_number, [, identifier]} momentary insuccess
+{BACK, 3, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression3, arr_access1], in=[program, ;, ], positive_number, [, identifier]} back
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression3], in=[program, ;, ], positive_number, [, identifier, arr_access]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, int_term]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, int]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, int]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, identifier]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, identifier]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term3], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, arr_access]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term3, arr_access1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, [, identifier]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term3, arr_access1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, [, identifier]} back
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4, int_term3], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, [, identifier, arr_access]} another try
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression4], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, [, identifier, int_term]} another try
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression5], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, ), int_expression, arithmetic_operator, int_term, (]} momentary insuccess
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2, int_expression5], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, ), int_expression, arithmetic_operator, int_term, (]} another try
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, int_expression]} another try
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, string_expression]} expand
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, constant]} momentary insuccess
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, constant]} another try
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number, identifier]} advance
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], positive_number]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], 0]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], 0]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], non_zero_number]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ], non_zero_digit]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ]]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, ]]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, digit_sequence, non_zero_digit]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, digit_sequence]} expand
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2, digit_sequence1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, constant]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2, digit_sequence1], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, constant]} another try
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2, digit_sequence2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, digit_sequence, constant]} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2, digit_sequence2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, digit_sequence, constant]} another try
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2, non_zero_number2], in=[program, ;, ], positive_number, [, identifier, int_expression, arithmetic_operator, digit_sequence]} another try
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier, positive_number2], in=[program, ;, ], positive_number, [, identifier, int_expression, non_zero_number]} another try
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2, identifier], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number]} back
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression2], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, identifier]} another try
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, arr_access]} expand
+{NORMAL, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3, arr_access1], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier]} advance
+{NORMAL, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3, arr_access1, identifier], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, []} momentary insuccess
+{BACK, 2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3, arr_access1, identifier], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, []} back
+{BACK, 1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3, arr_access1], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier]} back
+{BACK, 0, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3, string_expression3], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, arr_access]} another try
+{BACK, 0, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =, expression3], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, string_expression]} another try
+{BACK, 0, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier, =], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, expression]} back
+{BACK, -1, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1, identifier], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, expression, =]} back
+{BACK, -2, w=[S1, program1, statement1, dec_stmt2, type1, int, simple_assign_stmt1], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, expression, =, identifier]} another try
+{BACK, -2, w=[S1, program1, statement1, dec_stmt2, type1, int], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, simple_assign_stmt]} back
+{BACK, -3, w=[S1, program1, statement1, dec_stmt2, type1], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, simple_assign_stmt, int]} another try
+{NORMAL, -3, w=[S1, program1, statement1, dec_stmt2, type2], in=[program, ;, ], positive_number, [, identifier, int_expression, positive_number, ], positive_number, [, identifier, simple_assign_stmt, string]} 

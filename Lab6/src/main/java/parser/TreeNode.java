@@ -1,3 +1,5 @@
+package parser;
+
 public class TreeNode {
     int index;
     String info;

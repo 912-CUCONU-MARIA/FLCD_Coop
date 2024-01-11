@@ -1,3 +1,5 @@
+package parser;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -117,7 +119,7 @@ public class Grammar
         }
     }
 
-    public List<List<String>> getProductionsForNonterminal(String nonterminal) throws GrammarException{
+    public List<List<String>> getProductionsForNonterminal(String nonterminal) throws GrammarException {
         // Check if the nonterminal exists
         if (!nonterminals.contains(nonterminal)) {
             throw new GrammarException("Non-terminal '" + nonterminal + "' does not exist in the grammar.");

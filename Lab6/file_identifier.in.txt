@@ -1,0 +1,5 @@
+initial_states:p0
+final_states:p1
+all_states:p0,p1
+alphabet:_,digit,letter
+transitions:(p0,_,p1),(p0,letter,p1),(p1,_,p1),(p1,letter,p1),(p1,digit,p1)

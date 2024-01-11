@@ -1,0 +1,23 @@
+int 2x;
+x=readInt();
+int @;
+int isprime=1;
+char yes="Yes, x is prime";
+char no="No, x is not prime";
+
+while(d*d<=x && prime==1)
+{
+	if(x%d==0)
+	{
+	prime=0;
+	}
+	d=d+1;
+}
+if(prime==1)
+{
+	print(yes);
+}
+else
+{
+	print(no);
+}

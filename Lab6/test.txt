@@ -1,0 +1,4 @@
+int x;
+x=readInt();
+int d=2;
+end
