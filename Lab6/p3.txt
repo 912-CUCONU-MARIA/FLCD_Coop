@@ -5,6 +5,7 @@ while ( i != n )
 {
 sum = sum + readInt();
 i = i + 1;
+end_while
 }
 print(sum);
 end

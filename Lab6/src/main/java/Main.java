@@ -15,11 +15,10 @@ public class Main {
 
 
             Scanner scanner = new Scanner();
-            scanner.scanProgram("test.txt");
+            scanner.scanProgram("p3.txt");
             String sequence = scanner.getSequenceFromPif();
             Parser parser2 = new Parser("syntaxRules_Mara.txt", "out2.txt");
             parser2.parse(sequence);
-            System.out.println(parser2.getConfig().getGrammar().getTerminals());
         }catch (Exception e){
             System.out.println(e);
         }

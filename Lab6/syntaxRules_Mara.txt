@@ -15,7 +15,8 @@
 <type> = string
 <simple_assign_stmt> = identifier = <expression>
 <arr_assign_stmt> = <arr_access> = <expression>
-<arr_access> = identifier [ <positive_number> ]
+<arr_access> = identifier [ identifier ]
+<arr_access> = identifier [ constant ]
 <expression> = <in_func_call>
 <expression> = <int_expression>
 <expression> = <string_expression>
@@ -25,7 +26,7 @@
 <int_term> = readInt()
 <int_term> = constant
 <int_term> = identifier
-<int_term> = arr_access
+<int_term> = <arr_access>
 <positive_number> = 0
 <positive_number> = <non_zero_number>
 <non_zero_number> = <non_zero_digit>
@@ -44,18 +45,33 @@
 <arr_dec_stmt> = { <identifier_list> }
 <arr_dec_stmt> = { <array_list> }
 <arr_dec_stmt> = { <constant_list> }
-<simple_arr_stmt> = identifier [ <non_zero_number> ]
-<identifier_list> = identifier
+<simple_arr_stmt> = identifier [ constant ] = <arr_dec_stmt>
+<simple_arr_stmt> = identifier [ constant ]
 <identifier_list> = identifier , <identifier_list>
+<identifier_list> = identifier
 <array_list> = <arr_access>
 <array_list> = <arr_access> , <array_list>
-<constant_list> = constant
 <constant_list> = constant , <constant_list>
-<if_stmt> = if ( <condition> ) { <statement> } else { <statement> }
-<condition> = <expression> <relational_operator> <expression>
+<constant_list> = constant
+<if_stmt> = if ( <condition> ) { <if_body> }
+<if_stmt> = if ( <condition> ) { <if_body> } else { <if_body> }
+<condition> = <bool_term> <relational_operator> <expression>
+<condition> = <bool_term> <relational_operator> <expression> && <condition>
+<bool_term> = constant
+<bool_term> = identifier
+<bool_term> = <arr_access>
+<bool_term> = <int_expression>
 <relational_operator> = ==
 <relational_operator> = !=
-<while_stmt> = while ( <condition> ) { <statement> }
+<relational_operator> = ~=
+<relational_operator> = ~
+<while_stmt> = while ( <condition> ) { <while_body> }
+<while_body> = <statement> <while_body>
+<while_body> = <statement>
+<while_body> = end_while
+<if_body> = <statement> <if_body>
+<if_body> = <statement>
+<if_body> = end_if
 <in_func_call> = readInt()
 <in_func_call> = readString()
 <out_func_call> = print ( identifier )

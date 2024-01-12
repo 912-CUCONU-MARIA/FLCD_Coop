@@ -1,16 +1,18 @@
 int a = readInt();
 int b = readInt();
 int c = readInt();
-int array[3]={a,b,c};
-int max=-1;
-int i=0;
-
-while(i<=2)
+int array[3] = {a,b,c};
+int max = -1;
+int i = 0;
+while(i ~= 2)
 {
-	if(max<array[i])
-	{
-	max=array[i];
-	}
-	i=i+1;
+if(max ~ array[i])
+{
+max=array[i];
+end_if
+}
+i = i + 1;
+end_while
 }
 print(max);
+end

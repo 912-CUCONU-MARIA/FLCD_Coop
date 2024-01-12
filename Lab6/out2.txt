@@ -1,1 +1,1 @@
-int identifier = constant ; int identifier = constant ; int identifier = constant ; print ( identifier ) ; end is accepted
+int identifier = constant ; int identifier = constant ; int identifier = constant ; while ( identifier != identifier ) { identifier = identifier + readInt() ; identifier = identifier + constant ; end_while } print ( identifier ) ; end is accepted

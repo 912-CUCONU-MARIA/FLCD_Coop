@@ -1,2 +1,6 @@
-sum = sum + readInt();
+if(max ~ array[i])
+{
+max=array[i];
+end_if
+}
 end
