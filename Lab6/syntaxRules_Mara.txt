@@ -19,12 +19,11 @@
 <expression> = <in_func_call>
 <expression> = <int_expression>
 <expression> = <string_expression>
-<int_expression> = int
-<int_expression> = identifier
-<int_expression> = arr_access
+<int_expression> = <int_term>
 <int_expression> = <int_term> <arithmetic_operator> <int_expression>
 <int_expression> = ( <int_term> <arithmetic_operator> <int_expression> )
-<int_term> = int
+<int_term> = readInt()
+<int_term> = constant
 <int_term> = identifier
 <int_term> = arr_access
 <positive_number> = 0

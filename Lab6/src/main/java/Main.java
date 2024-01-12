@@ -15,7 +15,7 @@ public class Main {
 
 
             Scanner scanner = new Scanner();
-            scanner.scanProgram("p3.txt");
+            scanner.scanProgram("test.txt");
             String sequence = scanner.getSequenceFromPif();
             Parser parser2 = new Parser("syntaxRules_Mara.txt", "out2.txt");
             parser2.parse(sequence);
